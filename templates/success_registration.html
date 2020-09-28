@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Success registration{% endblock title %}
 {% block content %}
-<h1>You are registrated success!<h2>
+    <h1>Dear, {{login}} you had registrated success!
+    <h2><a href="{% url 'home' %}"> Home </a></h2>        
 {% endblock content %}

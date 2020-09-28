@@ -10,3 +10,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.login
+
+    def get_absolute_url(self):
+        return reverse('success_registration', args=[str(self.id)])

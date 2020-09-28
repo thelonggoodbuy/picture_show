@@ -2,9 +2,9 @@
 {% block title %} Registration {% endblock title %}
 {% block content %} 
     <h2> Sign Up </h2>
-    <form method="post">
+    <form action="" method="post">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Sign Up</button>>
-    
+            <input type="submit" value="Save">
+    </form>
 {% endblock content %}
