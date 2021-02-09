@@ -1,21 +1,11 @@
-from django.views.generic.edit import CreateView
-from django.views.generic import DetailView
-from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-from .models import User
-
-
-class RegistrationView(CreateView):
-    model = User
-    template_name = 'registration.html'
-    fields = ['login', 'email', 'password']
+from .forms import CustomUserCreationForm
 
 
-def success_registration(request, pk):
-    user = get_object_or_404(User, pk=pk)
-    context = {'login': user.login}
-    return render(request, 'success_registration.html', context)
-
-
-def home(request):
-    return render(request, 'home.html')
+class SignUpView(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('home')
+    template_name = 'signup.html'
+    

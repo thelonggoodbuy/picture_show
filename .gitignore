@@ -4,3 +4,4 @@ picture_show_venv
 db.sqlite3
 /static
 .DS_Store
+.vscode
