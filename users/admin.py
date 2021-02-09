@@ -10,5 +10,8 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserCreationForm
     model = CustomUser
+    
+
+
 
 admin.site.register(CustomUser)
