@@ -1,7 +1,7 @@
 from django.test import TestCase, SimpleTestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-
+from .models import CustomUser
 
 class HomePageTest(SimpleTestCase):
 
@@ -16,14 +16,12 @@ class HomePageTest(SimpleTestCase):
 
     def test_view_correct_template(self):
         response = self.client.get(reverse ('home'))
-        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'home.html')
 
 
-class SignupPageTest(TestCase):
+class SignUpPageTest(TestCase):
     
-    username = 'newuser'
-    email = 'newuser@email.com'
+    email = 'newuser@gmail.com'
 
     def test_signup_page_status_code(self):
         response = self.client.get('/users/signup/')
@@ -38,8 +36,7 @@ class SignupPageTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'signup.html')
 
-    def test_signup_form(self):
-        new_user = get_user_model().objects.create_user(self.username, self.email)
+    def test_creating_user_in_database(self):
+        new_user = get_user_model().objects.create_user(self.email)
         self.assertEqual(get_user_model().objects.all().count(),1)
-        self.assertEqual(get_user_model().objects.all()[0].username, self.username)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)

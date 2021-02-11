@@ -2,9 +2,5 @@
 
 {% block title %} The last picture show {% endblock title %}
 {% block content %}
-    {% comment %} <h1>Sign Up</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit"> Sign Up </button> {% endcomment %}
-    <a href="{% url "signup" %}"> Sign Up </a>
+    <a href="{% url "signup" %}"> Реєстрація </a>
 {% endblock content %}
