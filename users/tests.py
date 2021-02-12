@@ -21,13 +21,9 @@ class HomePageTests(SimpleTestCase):
 
 class UsersSignUpTests(TestCase):
     
-    username = "newuser"
-    email = "user_email"
+
+    email = "newuser@gmail.com"
     password = "newuserpassword"
-
-
-    def set_up_test_data_data(cls):
-        CustomUser.objects.create(username='newuser', password='newuserpassword')
 
 
     def test_sign_up_status_code(self):
@@ -44,8 +40,30 @@ class UsersSignUpTests(TestCase):
         self.assertTemplateUsed(response, "signup.html")
 
     def test_signup_form(self):
-        new_user = get_user_model().objects.create_user(self.username, self.email, self.password)
+        new_user = get_user_model().objects.create_user(self.email, self.password)
         self.assertEqual(get_user_model().objects.all().count(), 1)
-        self.assertEqual(get_user_model().objects.all()[0].username, self.username)
+
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
-        self.assertEqual(get_user_model().objects.all()[0].password, self.password)
+ #       self.assertEqual(get_user_model().objects.all()[0].password, self.password)
+
+    
+    class UserManagersTests(TestCase):
+
+        def test_create_user(self):
+            User = get_user_model()
+            user = User.objects.create_user(email='users_email@gmail.com', password='users_password')
+            self.assertEqual(user.email, email='users_email@gmail.com')
+            self.assertTrue(user.is_active)
+            self.assertFalse(user.is_staff)
+            self.assertFalse(user.is_superuser)
+            try:
+                self.assertIsNone(user.username)
+            except AttribureError:
+                path
+            with self.assertRaises(TypeError):
+                User.objects.create_user()
+            with self.assertRaises(TypeError):
+                User.objects.create_user(email='')
+            with self.assertRaises(ValueError):
+                Users.objects.create_user(email='', password="")
+
