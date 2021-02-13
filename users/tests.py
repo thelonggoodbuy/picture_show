@@ -46,15 +46,17 @@ class SignUpPageTest(TestCase):
         new_user = get_user_model().objects.create_user(self.email, self.password)
         self.assertEqual(get_user_model().objects.all().count(),1)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
-
+        self.assertEqual(get_user_model().objects.all()[0].password, self.password)
 
 class CustomUserManager(BaseUserManager):
 
-    def create_user(self, email, password, **extra_fields):
+    def test_create_user(self, email, password, **extra_fields):
+        print(start_users_creating)
         if not email:
             raise ValueError(ugettext('The email must be set'))
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save()
+        print(finish_users_creating)
         return user
