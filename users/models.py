@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy
 
 
+from .managers import CustomUserManager
+
+
 
 class CustomUser(AbstractUser):
     username = None
@@ -10,6 +13,8 @@ class CustomUser(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    objects = CustomUserManager()
 
     def __str__(self):
         return self.email
