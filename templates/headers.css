@@ -1,0 +1,22 @@
+*, ::after, ::before {
+  box-sizing: content-box;
+}
+
+
+nav {
+  font-family: 'Oswald', sans-serif !important;
+}
+
+nav ul {
+
+
+  font-size: 20px;
+
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+nav li {
+  box-sizing: content-box !important;
+}
+
