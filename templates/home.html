@@ -1,39 +1,84 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} The last picture show {% endblock title %}
 {% block content %}
 
-    <div> 
-        <p> Не пропусти, </p> 
-        <p> останній кіносеанс </p> 
-        <p> тільки для Тебе </p> 
-        <h4><a href="{% url 'signup' %}"> Реєстрація через email </a></h4>
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-8">
+        <img src="static/home_img_1_4.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="1400" height="1000" loading="lazy">
+        </div>
+    <div class="col-lg-4">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Не пропусти,</h1>
+        <p class="lead">останній кіносеанс тільки для Тебе! </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4"> Реєстрація</button>
+        </div>
     </div>
-
-    <div> 
-        <p> Не більше п'яти сеансів! </p> 
-        <p> Ми відслідковуємо яка стрічка </p> 
-        <p> буде показуватися лише кілька разів </p>
-        <p> у твоєму місті! </p> 
-        <p> Через 50 років ти розкажешь </p> 
-        <p> онукам, яким трєшаком вважався </p>
-        <p> культовий фільм </p> 
-        <p> Останній кіносеанс - </p> 
-        <p> це історія яка завжди з тобою </p> 
     </div>
+</div>
 
-    <div> 
-        <p> Ми не тільки збережемо те, що тобі </p> 
-        <p> сподобалося </p> 
-        <p> а й покажемо кінотеатр, чи кіноклуб, де </p>
-        <p> можна подивитися! </p> 
+
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Custom cards</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+
+
+
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            
+            <img src="static/unsplash-photo-1.jpg" class="card-img" alt="Snova_hernia_v_photo">
+            <div class="card-img-overlay">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <h5 class="card-title">Не більше п'яти сеансів!</h5>
+                    <p class="card-text">Ми відслідкуємо яка стрічка
+                        буде показуватися лише кілька разів
+                        в твоєму місті.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            <img src="static/unsplash-photo-1.jpg" class="card-img" alt="Snova_hernia_v_photo">
+            <div class="card-img-overlay">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <h5 class="card-title">Останній кіносеанс -
+                        це історія, що поряд з тобою!</h5>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>Pakistan</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                <small>4d</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div> 
-        <p> Останнії кіносеанс, як останній ряд в кінотеатрі. </p> 
-        <p> Ти його не забудешь </p>  
-    </div\>
-
-    <h4><a href="{% url 'signup' %}"> Реєстрація через email </a></h4>
 
 {% endblock content %}
