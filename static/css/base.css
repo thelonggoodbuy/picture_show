@@ -1,0 +1,49 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+
+.nav-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+nav {
+  font-family: 'Oswald', sans-serif !important;
+  box-sizing: content-box;
+
+}
+
+
+nav ul {
+  font-size: 20px;
+  margin-left: 25%;
+  margin-right: 35%;
+  flex-direction: initial;
+  display: inline;
+}
+
+nav li {
+  display: inline;
+  width: 160px; 
+}
+
+
+
+
+/* new css */
+
+.rounded-4 { border-radius: .5rem; }
+.rounded-5 { border-radius: 1rem; }
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+ 
+

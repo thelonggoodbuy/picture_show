@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 gunicorn = "==20.0.4"
+django-crispy-forms = "*"
 
 [dev-packages]
 
