@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title%} Вхід в систему {%endblock title%}
 
 {% block content %}
-<h2> Увиійти в систему <h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <button type="submit"> увійти </button>
-</form>>
+<div style="font-family: 'Oswald', sans-serif">
+<div class="row align-items-center g-lg-5 py-5"></div>
+    <div class="col-md-10 mx-auto col-lg-5">
+    <form class="p-4 p-md-5 border rounded-3 bg-light" method="post">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <button class="btn btn-outline-secondary btn-lg px-4" type="submit"> увійти </button>
+    </div>
+    </form>
 
 {% endblock content %}
