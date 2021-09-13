@@ -15,33 +15,59 @@
 </head>
 <body>
  
-  <nav class="navbar navbar-expand-lg bg-dark">
 
-    <div class="nav-container">
-      <div class="d-lg-none">
-        <button class="btn btn-sm navbar-burger">
-            <ul class="navbar-nav">
-              <a class="navbar-brand h4 text-decoration-none text-light" href="{% url 'home' %}">The last picture show </a>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="nav-container">
+    <div class="d-lg-none">
+      <button class="btn btn-sm navbar-burger">
+          <ul class="navbar-nav">
+            <a class="navbar-brand h4 text-decoration-none text-light" href="{% url 'home' %}">The last picture show </a>
+            {% if user.is_authenticated %}
+              <li class="nav-item" ><a class="nav-link text-light" href="#"> Мій кабінет </a></li>
+            {% else %}
               <li class="nav-item" ><a class="nav-link text-light" href="{% url 'signup' %}"> Реєстрація </a></li>
-              <li class="nav-item"><a class="nav-link text-light" href="#"> Як зберігти </a></li>
-              <li class="nav-item"><a class="nav-link text-light" href="#"> Підтримка </a></li>
-              <li class="nav-item"><a class="nav-link text-light" href="#"> Вхід </a></li>
-            </ul>
-        </button>
-      </div>    
-      <div class="collapse navbar-collapse">
-        <a class="navbar-brand h4 text-decoration-none text-light" href="{% url 'home' %}">The last picture show </a>
-        <ul class="navbar-nav ">
-          <li class="nav-item" ><a class="nav-link text-light" href="{% url 'signup' %}"> Реєстрація </a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#"> Як зберігти </a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#"> Підтримка </a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#"> Вхід </a></div>
-        </ul>
-        
-      </div>
+            {% endif %}
+            <li class="nav-item"><a class="nav-link text-light" href="#"> Як зберігти </a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="#"> Підтримка </a></li>
+            {% if user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}"> Вийти </a></li>
+            {% else %}
+              <li class="nav-item"><a class="nav-link text-light" href="{% url 'login' %}"> Вхід </a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <p class="text-light">{{ user.email }}"<p>        
+            {% endif %}
+          </ul>
+      </button>
+    </div>    
+    <div class="collapse navbar-collapse">
+      <a class="navbar-brand h4 text-decoration-none text-light" href="{% url 'home' %}">The last picture show </a>
+      <ul class="navbar-nav ">
+        <!-- <li class="nav-item" ><a class="nav-link text-light" href=""> Мій кабінет </a></li> -->
+        {% if user.is_authenticated %}
+              <li class="nav-item" ><a class="nav-link text-light" href="#"> Мій кабінет </a></li>
+        {% else %}
+              <li class="nav-item" ><a class="nav-link text-light" href="{% url 'signup' %}"> Реєстрація </a></li>
+        {% endif %}
+        <li class="nav-item"><a class="nav-link text-light" href="#"> Як зберігти </a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#"> Підтримка </a></li>
+        <!-- <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}"> Вийти </a></div> -->
+        {% if user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}"> Вийти </a></li>
+        {% else %}
+              <li class="nav-item"><a class="nav-link text-light" href="{% url 'login' %}"> Вхід </a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <p class="text-light">Ви увійшли в систему як "{{ user.email }}"<p>        
+        {% endif %}
+      </ul>
 
-  </nav>
-  <div>
+    </div>
+
+    
+</nav>
+
+
   <main>
     <div class="container">
       {% block content %}
