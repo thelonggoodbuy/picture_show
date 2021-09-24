@@ -10,5 +10,5 @@ class AddCinemaForm(forms.Form):
     class Meta:
         model = Cinema
         address = AddressField()
-        # cover = forms.ImageField()
+        cover = forms.ImageField()
         fields ="__all__"

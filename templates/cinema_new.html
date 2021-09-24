@@ -9,7 +9,7 @@
 <div style="font-family: 'Oswald', sans-serif">
     <div class="row align-items-center g-lg-5 py-5"></div>
     <div class="col-md-10 mx-auto col-lg-5">
-        <form action="" method="post">
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
             <button class="btn btn-outline-secondary btn-lg px-4" type="submit">додати кінотеатр</button>
