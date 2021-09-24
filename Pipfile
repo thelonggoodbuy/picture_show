@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 gunicorn = "==20.0.4"
 django-crispy-forms = "*"
+django-address = "*"
+pillow = "*"
 
 [dev-packages]
 

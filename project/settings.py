@@ -10,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '=qas=y#$v1y5vg^2a$3kohu#p-ikz)xpo@_x!=##5j9$q(_p*q'
+GOOGLE_API_KEY = 'AIzaSyCsOUKRL3tvU_i_Pmx5GYyyGbhpfQ4B4xo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,9 +30,12 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'crispy_forms',
+    'address',
+    
 
     #local
     'users.apps.UsersConfig',
+    'shows.apps.ShowsConfig',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +119,9 @@ USE_TZ = True
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 
