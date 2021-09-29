@@ -17,5 +17,5 @@ class Cinema(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse("cinema_list")
     

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Усі кінотеатри {% endblock title %}
+{% block content %}
+<div class="bg-dark text-secondary px-4 py-5 text-center m-1">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-white">Панель управління кінотеатрами</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4"> Тут Ви можете додати кінотеатр, оно вити відомості про додані раніше кінотеатр або видалити кінотеатр </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="{% url 'cinema_create' %}" type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"> Додати кінотеатр </a>
+        </div>
+      </div>
+    </div>
+</div>
+{% for cinema in object_list %}
+  <div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0"><a href="">{{ cinema.name }}</a></h3>
+          <div class="mb-1 text-muted"><p>{{ cinema.address }}</p></div>
+          <p class="card-text mb-auto">{{ cinema.description }}</p>
+          <div class="row">
+            <div class="col-md-3 text-center">
+                <a href="{% url 'cinema_detail' cinema.pk %}" class="btn btn-outline-secondary btn-lg px-4 m-1"> докладніше </a>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="{% url "cinema_edit" cinema.pk %}" class="btn btn-outline-secondary btn-lg px-4 m-1"> редагувати </a>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="{% url "cinema_delete" cinema.pk %}" class="btn btn-outline-secondary btn-lg px-4 m-1"> видалити </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            {% if cinema.cover %}
+                <img src="{{ cinema.cover.url }}" width="189" height="255">
+            {% else %}
+                <p></p>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock content %}

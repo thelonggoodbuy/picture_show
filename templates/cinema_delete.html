@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Видалити кінотеатр</h1>
+    <form action ="" method="post">
+        {% csrf_token %}
+        <p> Ти дійсно хочешь видалити {{ cinema.name }} із переліку кінотеатрів? </p>
+        <button class="btn btn-danger ml-2"> Так </button>
+    </form>
+
+{% endblock content %}
