@@ -1,5 +1,4 @@
 from django.urls import path
-from django.contrib.auth.decorators import user_passes_test
 
 from .views import CinemaListView, CinemaCreateView, CinemaUpdateView, CinemaDetailView, CinemaDeleteView 
 

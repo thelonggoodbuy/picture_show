@@ -46,7 +46,6 @@
     <div class="collapse navbar-collapse">
       <a class="navbar-brand h4 text-decoration-none text-light" href="{% url 'home' %}">The last picture show </a>
       <ul class="navbar-nav ">
-        <!-- <li class="nav-item" ><a class="nav-link text-light" href=""> Мій кабінет </a></li> -->
         {% if user.is_authenticated %}
               <li class="nav-item" ><a class="nav-link text-light" href="{% url 'cinema_list' %}"> Мій кабінет </a></li>
         {% else %}
@@ -54,7 +53,6 @@
         {% endif %}
         <li class="nav-item"><a class="nav-link text-light" href="#"> Як зберігти </a></li>
         <li class="nav-item"><a class="nav-link text-light" href="#"> Підтримка </a></li>
-        <!-- <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}"> Вийти </a></div> -->
         {% if user.is_authenticated %}
               <li class="nav-item"><a class="nav-link text-light" href="{% url 'logout' %}"> Вийти </a></li>
         {% else %}
