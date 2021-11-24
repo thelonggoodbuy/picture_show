@@ -13,11 +13,3 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ("email", )
             
-
-
-# class CustomAdminCreationForm(UserCreationForm):
-
-
-#     class Meta(UserCreationForm):
-#         model = CustomUser
-#         fields = ("email", )
