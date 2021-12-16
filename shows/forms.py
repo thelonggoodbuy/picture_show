@@ -1,14 +1,13 @@
-from django import forms
-from address.forms import AddressField
+from django.forms import ModelForm
+#from address.forms import AddressField
 
 
 
 from .models import Cinema
 
 
-class AddCinemaForm(forms.Form):
+class CinemaForm(ModelForm):
     class Meta:
         model = Cinema
-        address = AddressField()
-        cover = forms.ImageField()
-        fields ="__all__"
+        fields = ['name', 'description', 'address', 'cover',]
+  
