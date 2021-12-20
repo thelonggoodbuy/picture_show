@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy
 
 
 from .models import CustomUser
-
+from shows.models import Cinema
 
 class HomePageTest(SimpleTestCase):
 
@@ -32,11 +32,11 @@ class SignUpPageTest(TestCase):
         response = self.client.get('/users/signup/')
         self.assertEqual(response.status_code, 200)
 
-    def test_view_url_by_name(self):
+    def test_signup_view_url_by_name(self):
         response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
 
-    def test_view_uses_correct_template(self):
+    def test_signup_view_uses_correct_template(self):
         response = self.client.get(reverse('signup'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'signup.html')
@@ -45,3 +45,22 @@ class SignUpPageTest(TestCase):
         new_user = get_user_model().objects.create_user(self.email, self.password)
         self.assertEqual(get_user_model().objects.all().count(),1)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
+
+class LogInPageTest(TestCase):
+
+    email = 'currentuser@gmail.com'
+    password = 'currentuserpassword'
+
+
+    def test_login_page_status_code(self):
+        response = self.client.get('/users/login/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_page_url_by_name(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_view_uses_correct_template(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')

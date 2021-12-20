@@ -1,19 +1,25 @@
 from pathlib import Path
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+root = environ.Path(__file__)
+env = environ.Env()
+environ.Env.read_env()
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=qas=y#$v1y5vg^2a$3kohu#p-ikz)xpo@_x!=##5j9$q(_p*q'
+SECRET_KEY = env.str('SECRET_KEY')
+GOOGLE_API_KEY = env.str('GOOGLE_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -29,9 +35,12 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'crispy_forms',
+    'address',
+    
 
     #local
     'users.apps.UsersConfig',
+    'shows.apps.ShowsConfig',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'uk'
 
+
 TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
@@ -115,11 +125,15 @@ USE_TZ = True
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 

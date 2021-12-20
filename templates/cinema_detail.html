@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} {{ cinema.name }} {% endblock title %}
+
+
+{% block content %}
+    <div style="font-family: 'Oswald', sans-serif">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-8">
+                    {% if cinema.cover %}
+                        <img src="{{ cinema.cover.url }}" class="d-block mx-lg-auto img-fluid img-thumbnail" width="350" height="500" loading="lazy">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                    
+                </div>
+                <div class="col-lg-4">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">{{ cinema.name }}</h1>
+                    <div class="mb-1 text-muted"><p>{{ cinema.address }}</p></div>
+                    <p class="lead"> {{ cinema.description }} </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="{% url "cinema_edit" cinema.pk %}" class="btn btn-primary btn-lg px-4 me-md-2 m-1"> Редагувати </a>
+                        <a href="{% url "cinema_delete" cinema.pk %}" class="btn btn-outline-secondary btn-lg px-4 m-1"> Видалити </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
