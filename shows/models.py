@@ -10,7 +10,7 @@ class Cinema(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     address = AddressField(blank='True', null='True')
-    cover = models.ImageField(upload_to='covers/')#, blank=True)
+    cover = models.ImageField(upload_to='covers/')
 
 
     def __str__(self):
